@@ -1,0 +1,166 @@
+table FactResellerSales
+	lineageTag: eef59cf6-aedd-441c-a10b-39a4818eeb5f
+
+	column SalesOrderNumber
+		dataType: string
+		lineageTag: 27fadd78-1c99-4775-a89d-414173f9cf5a
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fc540d7-67f1-49b8-bb1c-944b0187dcb0
+		summarizeBy: sum
+		sourceColumn: SalesOrderLineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 22d71406-e66f-4e8d-a24d-e535adf81635
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		variation Variation
+			isDefault
+			relationship: d63e9645-b8f8-4157-aaec-2e51404e939a
+			defaultHierarchy: LocalDateTable_e6cf927f-7595-4252-ae11-71fb5f17cc75.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DueDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: df74a12b-6340-479e-bf7a-b437499656e2
+		summarizeBy: none
+		sourceColumn: DueDate
+
+		variation Variation
+			isDefault
+			relationship: e0f0a990-e211-40ba-9f16-8c3dbc301d8b
+			defaultHierarchy: LocalDateTable_f66bfe28-061c-4a6f-ad7a-beee7e0ddb3f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ShipDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8d6492ae-d4a8-4263-9aea-c462b3c98abb
+		summarizeBy: none
+		sourceColumn: ShipDate
+
+		variation Variation
+			isDefault
+			relationship: 1b3e13ec-7348-4d6a-b3a5-2b054e2afd87
+			defaultHierarchy: LocalDateTable_f9c45060-0a20-4130-8d56-99e2d93ca108.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f781ff5a-c9db-4ace-b2ac-37c70a76748b
+		summarizeBy: count
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResellerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: dd0a097d-dacf-46b0-b243-1b8a64810181
+		summarizeBy: count
+		sourceColumn: ResellerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 84dd4185-b9e1-44c6-bad9-3511553cede6
+		summarizeBy: count
+		sourceColumn: PromotionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a3dcb25d-0528-4123-b1fb-e52d2f8f2546
+		summarizeBy: count
+		sourceColumn: EmployeeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 11cc1204-e616-4db2-9d16-6aa0b91fc166
+		summarizeBy: count
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 31330aea-29c2-4f19-944c-c36c3fe2032c
+		summarizeBy: sum
+		sourceColumn: OrderQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: double
+		lineageTag: cad0e4e4-0d5c-48e0-be75-fe0c94b12bb4
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalProductCost
+		dataType: double
+		lineageTag: fe92942f-880a-48bd-b40e-a34c9bb2e205
+		summarizeBy: sum
+		sourceColumn: TotalProductCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesAmount
+		dataType: double
+		lineageTag: 34de89f3-6a38-4dba-bc8c-f01aef1702f4
+		summarizeBy: sum
+		sourceColumn: SalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactResellerSales = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("localhost"),
+				    AdventureWorksDW2020 = Source{[Name="AdventureWorksDW2020"]}[Data],
+				    dbo_FactResellerSales = AdventureWorksDW2020{[Schema="dbo",Item="FactResellerSales"]}[Data]
+				in
+				    dbo_FactResellerSales
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

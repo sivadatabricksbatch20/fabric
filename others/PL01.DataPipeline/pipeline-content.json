@@ -1,0 +1,47 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Web1",
+        "type": "WebActivity",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "method": "GET",
+          "headers": {}
+        },
+        "externalReferences": {
+          "connection": "314e4694-04fb-4570-90c5-670524be182b"
+        }
+      },
+      {
+        "name": "Office365Email1",
+        "type": "Office365Email",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "to": "siva3.ks@gmail.com",
+          "subject": "Testing-12-12-2025",
+          "body": "<p>Hi Siva</p>\n<p>Good Morning</p>"
+        },
+        "externalReferences": {
+          "connection": "b89481a5-e6d2-43b6-8905-72f6e94f4670"
+        }
+      }
+    ]
+  }
+}

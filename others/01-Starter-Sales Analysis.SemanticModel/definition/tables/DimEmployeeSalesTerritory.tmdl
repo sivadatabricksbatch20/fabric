@@ -1,0 +1,35 @@
+table DimEmployeeSalesTerritory
+	lineageTag: 41aeeeec-a678-45c4-a12c-a18c78e0ef99
+
+	column EmployeeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a4b65570-2b90-4316-9200-774015a9d291
+		summarizeBy: count
+		sourceColumn: EmployeeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e9a2c1ba-856b-4a81-8025-e6c498a50eac
+		summarizeBy: count
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimEmployeeSalesTerritory = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("localhost"),
+				    AdventureWorksDW2020 = Source{[Name="AdventureWorksDW2020"]}[Data],
+				    dbo_DimEmployeeSalesTerritory = AdventureWorksDW2020{[Schema="dbo",Item="DimEmployeeSalesTerritory"]}[Data]
+				in
+				    dbo_DimEmployeeSalesTerritory
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

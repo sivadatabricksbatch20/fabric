@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Azure Databricks1",
+        "type": "DatabricksNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "notebookPath": "/Users/veerareddy2408@gmail.com/testcall",
+          "existingClusterId": "1128-090219-pzl8pqy3"
+        },
+        "externalReferences": {
+          "connection": "772b263d-3e98-452d-8817-c7016cb024c8"
+        }
+      }
+    ]
+  }
+}

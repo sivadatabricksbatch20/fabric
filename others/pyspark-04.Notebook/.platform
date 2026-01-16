@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "pyspark-04"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "062adc5e-efd1-9185-481e-b876f14932cb"
+  }
+}

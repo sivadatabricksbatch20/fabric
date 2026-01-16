@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Get Metadata1",
+        "type": "GetMetadata",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "fieldList": [
+            "columnCount"
+          ],
+          "datasetSettings": {
+            "annotations": [],
+            "type": "SqlServerTable",
+            "schema": [],
+            "typeProperties": {
+              "schema": "dbo",
+              "table": "DimAccount",
+              "database": "Batch01_db"
+            },
+            "externalReferences": {
+              "connection": "bc33f041-a096-4607-bb93-601b33258435"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

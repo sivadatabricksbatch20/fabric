@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Invoke pipeline1",
+        "type": "InvokePipeline",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "waitOnCompletion": true,
+          "operationType": "InvokeADFPipeline",
+          "pipelineName": "pipeline1",
+          "parameters": {}
+        },
+        "externalReferences": {
+          "connection": "98fb5544-7b6d-40c4-8689-9d456759b46e"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+table ColorFormats
+	lineageTag: 6b419066-d728-4368-a866-e9b86fbbaff1
+
+	column Column1
+		dataType: string
+		lineageTag: 0c79d085-4cbb-4ad9-bd87-7e3cc0e335f0
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column2
+		dataType: string
+		lineageTag: df87230d-8eda-4545-8139-2cd483b89b3b
+		summarizeBy: none
+		sourceColumn: Column2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column3
+		dataType: string
+		lineageTag: 45cb4434-1782-4887-b5b0-fbb6feb0ead6
+		summarizeBy: none
+		sourceColumn: Column3
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ColorFormats = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Student\Downloads\01-get-data\ColorFormats.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

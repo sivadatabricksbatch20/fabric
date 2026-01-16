@@ -1,0 +1,26 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Web1",
+        "type": "WebActivity",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "method": "GET",
+          "headers": {},
+          "relativeUrl": "/secrets/sqlpassword?api-version=7.4"
+        },
+        "externalReferences": {
+          "connection": "b897d795-6360-48c5-bbd3-7d9561bee368"
+        }
+      }
+    ]
+  }
+}

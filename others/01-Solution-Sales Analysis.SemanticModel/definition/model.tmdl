@@ -1,0 +1,33 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DimEmployee","DimEmployeeSalesTerritory","DimProduct","DimReseller","DimSalesTerritory","FactResellerSales","ResellerSalesTargets","ColorFormats"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.130.755.0 (24.06)
+
+ref table DimEmployee
+ref table DateTableTemplate_71b62656-4f79-44d6-8e5f-352b63b9038b
+ref table LocalDateTable_e18aae4f-5464-43c4-bca2-df8a51c72847
+ref table LocalDateTable_9e34d242-138d-4da5-a6fc-5626aebcd8e9
+ref table DimEmployeeSalesTerritory
+ref table DimProduct
+ref table LocalDateTable_4ce9dd2c-5c9e-49a2-9ba2-426af2dca7e5
+ref table LocalDateTable_d0dbd799-5433-4128-8c4a-bd2541ca6822
+ref table DimReseller
+ref table DimSalesTerritory
+ref table FactResellerSales
+ref table LocalDateTable_16fbdeb4-712e-4ddc-b3bc-a4ccf40997f9
+ref table LocalDateTable_507ce70f-7d46-47de-a454-7df66a6c33fa
+ref table LocalDateTable_a76e9b72-24c5-45f7-8764-00e7ea1343b2
+ref table ResellerSalesTargets
+ref table ColorFormats
+
+ref cultureInfo en-US
+
